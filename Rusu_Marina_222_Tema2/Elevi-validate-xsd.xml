@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<DIPLOMABAC
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DiplomaDeBacalaureat.xsd">
+    <ELEV cnp="1234567890122">
+        <PERSOANA>
+            <SERIE>AB</SERIE>
+            <NR>334</NR>
+            <NUME>Mihai</NUME>
+            <PRENUME>Valeriu</PRENUME>
+        </PERSOANA>
+        <CIF>1245658</CIF>
+        <SCOALAABSOLVITA>
+            <DENUMIRE>Stefan Cel Mare</DENUMIRE>
+            <LOCALITATE>Iasi </LOCALITATE>
+            <FILIERA>Teoretica</FILIERA>
+            <PROFILUL>Umanist</PROFILUL>
+            <SPECIALIZAREA>Filologie</SPECIALIZAREA>
+            <ANUL>2010</ANUL>
+        </SCOALAABSOLVITA>
+        <ELIBERAREADIPLOMEI NrDiploma="32">
+            <DENUMIRE>Colegiul National din Iasi</DENUMIRE>
+            <SESIUNEA>iunie-lulie</SESIUNEA>
+            <ANUL>2010</ANUL>
+            <LOCALITATE>Iasi</LOCALITATE>
+            <JUDET>Iasi</JUDET>
+            <DATA>2010-07-24</DATA>
+        </ELIBERAREADIPLOMEI>
+       <SITUATIEBAC>
+           <LOCALITATE>Iasi</LOCALITATE>
+           <JUDET>Iasi</JUDET>
+           <SESIUNE>iunie-iulie</SESIUNE>
+           <ANUL>2010</ANUL>
+           <REZULTATEBAC>
+               <DISCIPLINAEXAMEN>
+                   <DISCIPLINA>matematica</DISCIPLINA>
+                   <NOTA>10</NOTA>
+               </DISCIPLINAEXAMEN>
+               <DISCIPLINAEXAMEN>
+                   <DISCIPLINA>romana</DISCIPLINA>
+                   <NOTA>10</NOTA>
+               </DISCIPLINAEXAMEN>
+               <DISCIPLINAEXAMEN>
+                   <DISCIPLINA>engleza</DISCIPLINA>
+                   <NOTA>10</NOTA>
+               </DISCIPLINAEXAMEN>
+               <MEDIE>10</MEDIE>
+           </REZULTATEBAC>
+       </SITUATIEBAC>
+    </ELEV>
+    
+    <ELEV cnp="1224567890122">
+        <PERSOANA>
+            <SERIE>AP</SERIE>
+            <NR>23441</NR>
+            <NUME>Mihaela</NUME>
+            <PRENUME>Popescu</PRENUME>
+        </PERSOANA>
+        <CIF>234452</CIF>
+        <SCOALAABSOLVITA>
+            <DENUMIRE>Mircea Eliade</DENUMIRE>
+            <LOCALITATE>Iasi</LOCALITATE>
+            <FILIERA>Teoretica</FILIERA>
+            <PROFILUL>Umanist</PROFILUL>
+            <SPECIALIZAREA>Filologie</SPECIALIZAREA>
+            <ANUL>2015</ANUL>
+        </SCOALAABSOLVITA>
+        <ELIBERAREADIPLOMEI>
+            <DENUMIRE>Colegiul Mircea Eliade</DENUMIRE>
+            <SESIUNEA>iunie-iulie</SESIUNEA>
+            <ANUL>2015</ANUL>
+            <LOCALITATE>Iasi</LOCALITATE>
+            <JUDET>Iasi</JUDET>
+            <DATA>2015-07-29</DATA>
+        </ELIBERAREADIPLOMEI>
+        <SITUATIEBAC>
+            <LOCALITATE>Iasi</LOCALITATE>
+            <JUDET>Iasi</JUDET>
+            <SESIUNE>iunie-iulie</SESIUNE>
+            <ANUL>2015</ANUL>
+            <REZULTATEBAC>
+                <DISCIPLINAEXAMEN>
+                    <DISCIPLINA>romana</DISCIPLINA>
+                    <NOTA>6</NOTA>
+                </DISCIPLINAEXAMEN>
+                <DISCIPLINAEXAMEN>
+                    <DISCIPLINA>matematica</DISCIPLINA>
+                    <NOTA>9</NOTA>
+                </DISCIPLINAEXAMEN>
+                <DISCIPLINAEXAMEN>
+                    <DISCIPLINA>informatica</DISCIPLINA>
+                    <NOTA>10</NOTA>
+                </DISCIPLINAEXAMEN>
+                <DISCIPLINAEXAMEN>
+                    <DISCIPLINA>engleza</DISCIPLINA>
+                    <NOTA>9</NOTA>
+                </DISCIPLINAEXAMEN>
+                <MEDIE>8.5</MEDIE>
+            </REZULTATEBAC>
+        </SITUATIEBAC>
+    </ELEV>
+</DIPLOMABAC>

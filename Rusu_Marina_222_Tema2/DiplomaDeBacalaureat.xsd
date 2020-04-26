@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="qualified">
+   
+   <xs:element name="DIPLOMABAC">
+    <xs:complexType>
+       <xs:sequence>
+           <xs:element name="ELEV" type="elevType" maxOccurs="unbounded"></xs:element>
+       </xs:sequence>
+   </xs:complexType>
+   </xs:element>
+    
+   <xs:complexType name="elevType">
+       <xs:sequence>
+           <xs:element name="PERSOANA" type="persoanaType"></xs:element>
+           <xs:element name="CIF">
+               <xs:simpleType>
+                   <xs:restriction base="xs:NMTOKENS">
+                       <xs:pattern value="[0-9]{5,7}"></xs:pattern>
+                   </xs:restriction>
+               </xs:simpleType>
+           </xs:element>
+           <xs:element name="SCOALAABSOLVITA" type="scoalaabsolvitaType"></xs:element>
+           <xs:element name="ELIBERAREADIPLOMEI" type="eliberareadiplomeiType"></xs:element>
+           <xs:element name="SITUATIEBAC" type="situatiebacType"></xs:element>
+       </xs:sequence>
+       <xs:attribute name="cnp" use="required">
+           <xs:simpleType>
+               <xs:restriction base="xs:NMTOKENS">
+                   <xs:pattern value="[1-2]{1}[0-9]{12}"/>
+               </xs:restriction>
+           </xs:simpleType>
+       </xs:attribute>
+   </xs:complexType>
+    
+    <xs:complexType name="persoanaType">
+        <xs:sequence>
+            <xs:element name="SERIE">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[A-Z]{2,}"></xs:pattern>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="NR">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{2,}"></xs:pattern>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="NUME">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="PRENUME">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="scoalaabsolvitaType">
+        <xs:sequence>
+            <xs:element name="DENUMIRE">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="LOCALITATE">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="FILIERA">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="PROFILUL">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="SPECIALIZAREA">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ANUL">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:maxInclusive value="2020"></xs:maxInclusive>
+                        <xs:minInclusive value="1800"></xs:minInclusive>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="eliberareadiplomeiType">
+        <xs:sequence>
+            <xs:element name="DENUMIRE">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="SESIUNEA">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ANUL">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:maxInclusive value="2020"></xs:maxInclusive>
+                        <xs:minInclusive value="1800"></xs:minInclusive>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="LOCALITATE">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="JUDET">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>         
+            <xs:element name="DATA" type="xs:date"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="NrDiploma" type="xs:int"></xs:attribute>
+    </xs:complexType>
+    
+    <xs:complexType name="situatiebacType">
+        <xs:sequence>
+            <xs:element name="LOCALITATE">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="JUDET">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="SESIUNE">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ANUL">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:maxInclusive value="2020"></xs:maxInclusive>
+                        <xs:minInclusive value="1800"></xs:minInclusive>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="REZULTATEBAC" type="rezultatebacType"></xs:element>
+            
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="rezultatebacType">
+        <xs:sequence>
+            <xs:element name="DISCIPLINAEXAMEN" type="disciplinaexamenType" minOccurs="3" maxOccurs="5"></xs:element>
+            <xs:element name="MEDIE">
+                <xs:simpleType>
+                    <xs:restriction base="xs:float">
+                        <xs:maxInclusive value="10"></xs:maxInclusive>
+                        <xs:minInclusive value="0"></xs:minInclusive>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+
+    
+    <xs:complexType name="disciplinaexamenType">
+        <xs:sequence>
+            <xs:element name="DISCIPLINA" type="xs:string"></xs:element>
+            <xs:element name="NOTA">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:minInclusive value="0"></xs:minInclusive>
+                        <xs:maxInclusive value="10"></xs:maxInclusive>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
