@@ -155,7 +155,7 @@
             </xs:element>         
             <xs:element name="DATA" type="xs:date"></xs:element>
         </xs:sequence>
-        <xs:attribute name="NrDiploma" type="xs:int"></xs:attribute>
+        <xs:attribute name="NrDiploma" type="xs:int" use="required"></xs:attribute>
     </xs:complexType>
     
     <xs:complexType name="situatiebacType">
