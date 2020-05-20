@@ -3,10 +3,22 @@
 session_start();
 include_once    "../admin/admin-functions.php";
 
-include_once   "headerAdmin.php";
+
 if(isLogged())
 {
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/Styles/adminCD.css">
+        <?php
+    include_once  $_SERVER["DOCUMENT_ROOT"] . "/Universitate/header.php";
+    
+    ?>
+</head>
+<body>
+
 <link rel="stylesheet" href="../Styles/adminCD.css">
 <center>
 <H1>Adauga Cadru Didactic</H1>
@@ -69,3 +81,5 @@ if(isLogged())
 <?php
 }
 ?>
+        </body>
+</html>

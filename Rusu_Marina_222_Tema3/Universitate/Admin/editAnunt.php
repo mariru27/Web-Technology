@@ -1,10 +1,21 @@
 <?php
 session_start();
 include_once    "../admin/admin-functions.php";
-include_once   "headerAdmin.php";
 if(isLogged())
 {
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/Styles/adminCD.css">
+        <?php
+    include_once  $_SERVER["DOCUMENT_ROOT"] . "/Universitate/header.php";
+    
+    ?>
+</head>
+<body>
+
 <H1>Editeaza Anunt<H1>
 <H2>Categorie:
 <form action="../Anunturi.php" method="POST">
@@ -48,3 +59,5 @@ if(isLogged())
     }
 }
 ?>
+        </body>
+</html>

@@ -21,6 +21,9 @@
     #aa{
         color:#253823;
     }
+    body{
+    background-color: #162029;
+}
 
 </style>
 <H2>
@@ -47,11 +50,11 @@ else
 
 <table>
     <tr>
-        <td><a href="Home.php">Home</a></td>
-        <td><a href="Admitere.php">Admitere</a></td>
-        <td><a href="Anunturi.php">Anunturi</a></td>
-        <td><a href="CadreDidactice.php">Cadre Didactice</a></td>
-        <td><a href="Contact.php">Contact</a></td>
-        <td><a href="ProgrameStudii.php">Programe de Studii</a></td>
+        <td><a href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/Home.php">Home</a></td>
+        <td><a href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/Admitere.php">Admitere</a></td>
+        <td><a href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/Anunturi.php">Anunturi</a></td>
+        <td><a href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/CadreDidactice.php">Cadre Didactice</a></td>
+        <td><a href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/Contact.php">Contact</a></td>
+        <td><a href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/ProgrameStudii.php">Programe de Studii</a></td>
     </tr>
 </table>

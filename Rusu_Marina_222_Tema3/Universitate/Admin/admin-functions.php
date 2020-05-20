@@ -1,10 +1,10 @@
 <?php
-// session_start();
-// require_once "../config.php";
+
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
 include_once   $myRoot . "/Universitate/connect.php";
 
 ?>
+
 <?php
 
 function doLogin($user,$password)

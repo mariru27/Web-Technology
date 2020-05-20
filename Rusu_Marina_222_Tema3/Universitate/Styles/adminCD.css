@@ -35,3 +35,20 @@ img{
     height: 1cm;
     background-color: darkgreen;
 } */
+H1{
+    padding: 10px;
+    color: #4cba55;
+}
+
+H2{
+    padding: 10px;
+    color:rgb(29, 133, 19);
+}
+
+H3{
+    padding: 10px;
+    color:rgb(29, 133, 19);
+}
+a{
+    color: #3fd1a0;
+}

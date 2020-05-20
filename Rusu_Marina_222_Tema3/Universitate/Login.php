@@ -7,7 +7,6 @@
       
     <link rel="stylesheet" href="Styles/login.css">
         <title>Login</title>
-
     </head>
     <body>
     <form action="Home.php" method="POST" >
