@@ -1,0 +1,37 @@
+#Ctable{
+    background-color: #314457;
+    width: 40cm;
+    height: 4cm;
+    margin-bottom: 2cm;
+}
+#mytable{
+    background-color: #6c829e;
+    width: 40cm;
+    height: 1cm;
+    margin-top: 2cm;
+
+}
+#a{
+    color: #09144d;
+}
+td,th{
+    color:#60fa52;
+    font-size: large;
+    text-align: left;
+}
+img{
+    width: 200px;
+    height: auto;
+}
+
+#tab{
+    background-color: #314457;
+    width: 10cm;
+    height: 10cm;
+    padding-left: 0.5cm;
+}
+/* input[type=submit]{
+    width: 10cm;
+    height: 1cm;
+    background-color: darkgreen;
+} */

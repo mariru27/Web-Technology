@@ -1,0 +1,32 @@
+body{
+    background-color: #162029;
+}
+
+table{
+    background-color: #314457;
+    margin-top:20vh;
+    padding: 1vh;
+}
+
+a{
+    color: #3fd1a0;
+}
+
+b{
+    color: #2e8762;
+}
+
+td,th{
+    color:#60fa52;
+    font-size: large;
+    padding: 1cm;
+}
+input[type=submit]{
+    background-color:  rgb(15, 199, 15);
+    width: 20vw;
+    height: 4vh;
+
+}
+input[type=text],[type=password]{
+    height: 6vh;
+}
