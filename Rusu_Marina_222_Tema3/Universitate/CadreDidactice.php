@@ -39,11 +39,6 @@ if(isLogged())
             $idProfesor = $_REQUEST['idProfesor'];
             stergeCadruDidactic($idProfesor);
         break;
-        case 'adauga':
-            adaugaCadreDidactice();
-        break;
-        case 'edit':
-            editCadruDidactic();
         }
     
     }

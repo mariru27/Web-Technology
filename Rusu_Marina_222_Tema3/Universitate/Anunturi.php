@@ -21,14 +21,8 @@ include_once $myRoot."/Universitate/Admin/admin-functions.php";
             $actiune = isset($_REQUEST['actiune'])? $_REQUEST['actiune']:"";
             switch($actiune)
             {
-                case 'adauga':
-                    adaugaAnunt();
-                break;
                 case 'sterge':
                     stergeAnunt();
-                break;
-                case 'edit':
-                    editAnunt();
                 break;
             }
             

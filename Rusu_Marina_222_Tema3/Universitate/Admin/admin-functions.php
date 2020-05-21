@@ -107,94 +107,6 @@ function stergeCadruDidactic($idCadruDidactic)
     $result = mysqli_query($id_conexiune, $query);
 }
 
-
-function editCadruDidactic()
-{
-    global $id_conexiune;
-    $idProfesor = $_REQUEST['idProfesor'];
-    $nume = $_REQUEST['nume'];
-    $mail = $_REQUEST['mail'];
-    $telefon = $_REQUEST['telefon'];
-    $fax = $_REQUEST['fax']; 
-    $pagWeb = $_REQUEST['pagWeb'];
-    $grad = $_REQUEST['grad'];
-
-    $addQuery = sprintf("UPDATE profesor SET nume = '%s', mail = '%s', telefon = '%s', fax = '%s', pagWeb = '%s', grad = '%s' WHERE idProfesor = '%s'",
-    mysqli_real_escape_string($id_conexiune, $nume),
-    mysqli_real_escape_string($id_conexiune, $mail),
-    mysqli_real_escape_string($id_conexiune, $telefon),
-    mysqli_real_escape_string($id_conexiune, $fax),
-    mysqli_real_escape_string($id_conexiune, $pagWeb),
-    mysqli_real_escape_string($id_conexiune, $grad),
-    mysqli_real_escape_string($id_conexiune, $idProfesor));
-    mysqli_query($id_conexiune, $addQuery);
-}
-
-function adaugaCadreDidactice()
-{
-    global $id_conexiune;
-    
-    $valid = true;
-    $nume = $_REQUEST['nume'];
-    $mail = $_REQUEST['mail'];
-    $telefon = $_REQUEST['telefon'];
-    $fax = $_REQUEST['fax']; 
-    $pagWeb = $_REQUEST['pagWeb'];
-    $grad = $_REQUEST['grad'];
-
-    if(empty($nume))
-    {
-        $valid = false;
-        echo "Campul nume trebuie completat";
-    }
-    if(empty($mail))
-    {
-        $valid = false;
-        echo "Campul mail trebuie completat";   
-    }
-    if(empty($telefon))
-    {
-        $valid = false;
-        echo "Campul telefon trebuie completat";   
-    }
-    if(empty($fax))
-    {
-        $valid = false;
-        echo "Campul fax trebuie completat";   
-    }
-    if(empty($pagWeb))
-    {
-        $valid = false;
-        echo "Campul pagWeb trebuie completat";   
-    }
-    if(empty($grad))
-    {
-        $valid = false;
-        echo "Campul grad trebuie completat";   
-    }
-
-
-    if($valid)
-    {
-        $addQuery = sprintf("INSERT INTO profesor(nume,mail,telefon,fax,pagWeb,grad)
-        VALUES ('%s','%s','%s','%s','%s','%s');",
-        mysqli_real_escape_string($id_conexiune, $nume),
-        mysqli_real_escape_string($id_conexiune, $mail),
-        mysqli_real_escape_string($id_conexiune, $telefon),
-        mysqli_real_escape_string($id_conexiune, $fax),
-        mysqli_real_escape_string($id_conexiune, $pagWeb),
-        mysqli_real_escape_string($id_conexiune, $grad));
-        mysqli_query($id_conexiune, $addQuery);
-        print("<H3>Cadru didactic adaugat cu succes</H3>");
-    }
-    else
-    {
-        header("Location: /Universitate/Admin/AdaugaCD.php");
-    }
-
-}
-
-
 function afiseazaAnunturi()
 {
     global $id_conexiune;
@@ -272,26 +184,6 @@ function afiseazaOptiunileDeAnunturi($categorie = 1)
     }
 }
 
-function adaugaAnunt()
-{
-    global $id_conexiune;
-    
-    $categorie_id = $_REQUEST['categorie'];
-    $denumire = $_REQUEST['denumire'];
-    $continut = $_REQUEST['continut'];
-
-    $queryAddAnunt = sprintf("INSERT INTO anunturi(denumire,continut,dataPostarii)
-    VALUES ('%s','%s',CURDATE());
-    ",mysqli_real_escape_string($id_conexiune, $denumire),
-      mysqli_real_escape_string($id_conexiune, $continut));
-    mysqli_query($id_conexiune, $queryAddAnunt);
-    $last_id_Anunt = mysqli_insert_id($id_conexiune);
-
-    $queryAddAC = sprintf("INSERT INTO anunturicategorii(idAnunt ,idCategorie)
-    VALUES ('%d', '%d');",$last_id_Anunt, $categorie_id);    
-    mysqli_query($id_conexiune, $queryAddAC);
-}
-
 function stergeAnunt()
 {
     global $id_conexiune;
@@ -307,28 +199,9 @@ function stergeAnunt()
 
 
 
-function editAnunt()
-{
-    global $id_conexiune;
-    
-    $categorie_id = $_REQUEST['categorie'];
-    $denumire = $_REQUEST['denumire'];
-    $continut = $_REQUEST['continut'];
-
-    $idAnunt = $_REQUEST['idAnunt'];
-    $idAC = $_REQUEST['idAC'];
-
-    //am editat tot ce contine un anunt 
-    $queryEditAnunt = sprintf("UPDATE anunturi SET denumire = '%s', continut = '%s', dataPostarii = CURDATE() WHERE idAnunt = '%d'", 
-                    mysqli_real_escape_string($id_conexiune, $denumire),
-                    mysqli_real_escape_string($id_conexiune, $continut), $idAnunt);
-
-    mysqli_query($id_conexiune, $queryEditAnunt);
-
-
-    $queryEditCategorie = sprintf("UPDATE anunturicategorii SET idCategorie = '%d' WHERE idAC = '%d'", $categorie_id, $idAC);
-    mysqli_query($id_conexiune, $queryEditCategorie);
-
-}
-
+function checkEmail($email) {
+    $find1 = strpos($email, '@');
+    $find2 = strpos($email, '.');
+    return ($find1 !== false && $find2 !== false && $find2 > $find1);
+ }
 ?>

@@ -26,7 +26,7 @@ img{
 
 #tab{
     background-color: #314457;
-    width: 10cm;
+    width: 20cm;
     height: 10cm;
     padding-left: 0.5cm;
 }
@@ -35,6 +35,11 @@ img{
     height: 1cm;
     background-color: darkgreen;
 } */
+#eroare{
+    padding-left: 10px;
+    color:#ff9494;
+    font-size: 20px;
+}
 H1{
     padding: 10px;
     color: #4cba55;
