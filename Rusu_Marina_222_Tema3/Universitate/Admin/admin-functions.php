@@ -134,6 +134,7 @@ function adaugaCadreDidactice()
 {
     global $id_conexiune;
     
+    $valid = true;
     $nume = $_REQUEST['nume'];
     $mail = $_REQUEST['mail'];
     $telefon = $_REQUEST['telefon'];
@@ -141,15 +142,55 @@ function adaugaCadreDidactice()
     $pagWeb = $_REQUEST['pagWeb'];
     $grad = $_REQUEST['grad'];
 
-    $addQuery = sprintf("INSERT INTO profesor(nume,mail,telefon,fax,pagWeb,grad)
-    VALUES ('%s','%s','%s','%s','%s','%s');",
-    mysqli_real_escape_string($id_conexiune, $nume),
-    mysqli_real_escape_string($id_conexiune, $mail),
-    mysqli_real_escape_string($id_conexiune, $telefon),
-    mysqli_real_escape_string($id_conexiune, $fax),
-    mysqli_real_escape_string($id_conexiune, $pagWeb),
-    mysqli_real_escape_string($id_conexiune, $grad));
-    mysqli_query($id_conexiune, $addQuery);
+    if(empty($nume))
+    {
+        $valid = false;
+        echo "Campul nume trebuie completat";
+    }
+    if(empty($mail))
+    {
+        $valid = false;
+        echo "Campul mail trebuie completat";   
+    }
+    if(empty($telefon))
+    {
+        $valid = false;
+        echo "Campul telefon trebuie completat";   
+    }
+    if(empty($fax))
+    {
+        $valid = false;
+        echo "Campul fax trebuie completat";   
+    }
+    if(empty($pagWeb))
+    {
+        $valid = false;
+        echo "Campul pagWeb trebuie completat";   
+    }
+    if(empty($grad))
+    {
+        $valid = false;
+        echo "Campul grad trebuie completat";   
+    }
+
+
+    if($valid)
+    {
+        $addQuery = sprintf("INSERT INTO profesor(nume,mail,telefon,fax,pagWeb,grad)
+        VALUES ('%s','%s','%s','%s','%s','%s');",
+        mysqli_real_escape_string($id_conexiune, $nume),
+        mysqli_real_escape_string($id_conexiune, $mail),
+        mysqli_real_escape_string($id_conexiune, $telefon),
+        mysqli_real_escape_string($id_conexiune, $fax),
+        mysqli_real_escape_string($id_conexiune, $pagWeb),
+        mysqli_real_escape_string($id_conexiune, $grad));
+        mysqli_query($id_conexiune, $addQuery);
+        print("<H3>Cadru didactic adaugat cu succes</H3>");
+    }
+    else
+    {
+        header("Location: /Universitate/Admin/AdaugaCD.php");
+    }
 
 }
 
@@ -171,6 +212,7 @@ function afiseazaAnunturi()
             ON anunturicategorii.idCategorie = categorii.idCategorie
             WHERE categorii.denumire = '%s';",mysqli_real_escape_string($id_conexiune, $row['denumire']));
             $resultAnunturi = mysqli_query($id_conexiune, $queryAnunturi);
+            if(mysqli_num_rows($resultAnunturi))
             if($resultAnunturi)
             {
                 //categorie 
@@ -179,13 +221,17 @@ function afiseazaAnunturi()
                 while($rowAnunturi = mysqli_fetch_array($resultAnunturi))
                 {
                     //lista anunturi
+
                     print("<ul>");
                     print("
-                    <li style = \"margin-top:2cm;\">
+                    <li style = \"margin-top:2cm;\">");
+                    if(isLogged())
+                    {
+                    print("
                     <a id = \"a\" href=".$myRoot."'/Universitate/Anunturi.php?actiune=sterge&idAC=".$rowAnunturi['idAC']."&idAnunt=".$rowAnunturi['idAnunt'] ."'>Delete</a>
-                    <br><a id = \"a\" href=".$myRoot."'/Universitate/Admin/editAnunt.php?idAC=".$rowAnunturi['idAC']."&idAnunt=".$rowAnunturi['idAnunt'] ."'>Edit</a>
-
-                    <p style =\"color:#029907;\">"
+                    <br><a id = \"a\" href=".$myRoot."'/Universitate/Admin/editAnunt.php?idAC=".$rowAnunturi['idAC']."&idAnunt=".$rowAnunturi['idAnunt'] ."'>Edit</a>");
+                    }
+                    print("<p style =\"color:#029907;\">"
                     . $rowAnunturi['denumire'] .
                     "<br>
                     Data publicarii: " . $rowAnunturi['dataPostarii'] . 
@@ -204,7 +250,7 @@ function afiseazaAnunturi()
 }
 
 
-function afiseazaOptiunileDeAnunturi($categorie = 'Stire')
+function afiseazaOptiunileDeAnunturi($categorie = 1)
 {
     global $id_conexiune;
 
@@ -214,11 +260,15 @@ function afiseazaOptiunileDeAnunturi($categorie = 'Stire')
         print("<select  name = \"categorie\">");
         while($row = mysqli_fetch_array($result))
         {
-            
-            print("<option value =".$row['idCategorie'].">".$row['denumire']."</option>");
+            if($categorie == $row['idCategorie'])
+                print("<option value =".$row['idCategorie']." selected>".$row['denumire']."</option>");
+            else            
+                print("<option value =".$row['idCategorie'].">".$row['denumire']."</option>");
+           
             
         }
         print("</select>");
+
     }
 }
 

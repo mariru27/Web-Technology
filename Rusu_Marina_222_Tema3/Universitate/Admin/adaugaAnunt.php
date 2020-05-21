@@ -11,7 +11,7 @@ if(isLogged())
         <link rel="stylesheet" href="<?php  $_SERVER["DOCUMENT_ROOT"];?>/Universitate/Styles/adminCD.css">
         <?php
     include_once  $_SERVER["DOCUMENT_ROOT"] . "/Universitate/header.php";
-    
+     
     ?>
 </head>
 <body>

@@ -28,7 +28,7 @@ if(isLogged())
     $query = sprintf("SELECT * FROM anunturi WHERE idAnunt = '%d';", $idAnunt);
     $result = mysqli_query($id_conexiune, $query);
 
-    $queryCategorii = sprintf("SELECT categorii.denumire FROM anunturicategorii
+    $queryCategorii = sprintf("SELECT categorii.denumire, categorii.idCategorie FROM anunturicategorii
     INNER JOIN categorii
     ON anunturicategorii.idCategorie = categorii.idCategorie
     WHERE anunturicategorii.idAC = '%d';", $idAC);
@@ -39,7 +39,7 @@ if(isLogged())
         if($resultCategorie)
         {
             $categorie_row = mysqli_fetch_array($resultCategorie);
-            afiseazaOptiunileDeAnunturi($categorie_row['denumire']);
+            afiseazaOptiunileDeAnunturi($categorie_row['idCategorie']);
         }
         $row = mysqli_fetch_array($result);
    
